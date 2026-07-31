@@ -1,7 +1,6 @@
 import pygame
 x=pygame.init()
 print(x)
-
 # creating window
 game_window= pygame.display.set_mode((1000,500))
 pygame.display.set_caption("snake water gun")
@@ -12,7 +11,9 @@ game_over = False
 
 # creating a game loop
 while not exit_game:
-    pass
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            exit_game = True
 
 pygame.quit()
 quit()
