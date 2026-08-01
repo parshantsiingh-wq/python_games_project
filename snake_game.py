@@ -1,24 +1,29 @@
 import pygame
-x=pygame.init()
-print(x)
+pygame.init()
+screen_width=1200
+screen_height=600
 
-# creating window
-game_window= pygame.display.set_mode((1000,500))
-pygame.display.set_caption("snake water gun")
+# colors
+white=(255,255,255)
+red=(255,0,0)
+black=(0,0,0)
+
+game_window= pygame.display.set_mode((screen_width, screen_height))
+pygame.display.set_caption("my first game")
+pygame.display.update()
 
 # game specific variable
 exit_game = False
 game_over = False
 
-# creating a game loop
 while not exit_game:
     for event in pygame.event.get():
+        print(event)
         if event.type==pygame.QUIT:
             exit_game=True
-        if event.type==pygame.KEYDOWN:
-            if event.key==pygame.K_RIGHT:
-                print("you are passed")
+
+    game_window.fill(white)
+    pygame.display.update()
 
 pygame.quit()
 quit()
-
