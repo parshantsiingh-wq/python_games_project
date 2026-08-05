@@ -57,9 +57,15 @@ while not exit_game:
     snake_x=snake_x+velocity_x
     snake_y=snake_y+velocity_y
 
+    if abs(snake_x - food_x)<6 and (snake_y - food_y)<6:
+        score+=1
+
+        food_x = random.randint(20, screen_width // 2)
+        food_y = random.randint(20, screen_height // 2)
 
     game_window.fill(white)
-    pygame.draw.rect(game_window,black,[snake_x,snake_y,snake_size,snake_size])
+    pygame.draw.rect(game_window, red, (food_x, food_y, snake_size, snake_size))
+    pygame.draw.rect(game_window, (0,255,0),[snake_x,snake_y,snake_size,snake_size])
     pygame.display.update()
     clock.tick(fps)
 
